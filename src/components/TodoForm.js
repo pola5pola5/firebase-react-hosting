@@ -1,7 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {Button, Form, Input, InputGroup} from "reactstrap";
-
-function TodoForm({addTodo}) {
+import {TodosContext} from "../contexts/TodosContext";
+function TodoForm() {
+    //useContextの引数にContextのオブジェクトを渡すことで，value値にセットした値を使える
+    const {addTodo} = useContext(TodosContext)
     const [value, setValue] = useState('')
     //フォーム送信次の関数
     const handleSubmit = e => {
